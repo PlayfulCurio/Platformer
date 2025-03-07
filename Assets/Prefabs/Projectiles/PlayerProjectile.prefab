@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerProjectile
       objectReference: {fileID: 0}
+    - target: {fileID: 7302551239328438630, guid: 6f573f93a988f8640a4369026b7808ca, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7490149680673406791, guid: 6f573f93a988f8640a4369026b7808ca, type: 3}
       propertyPath: m_Sprite
       value: 

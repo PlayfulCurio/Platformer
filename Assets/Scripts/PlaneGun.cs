@@ -26,6 +26,7 @@ public class PlaneGun : MonoBehaviour
 public struct GunData
 {
     [field: SerializeField] public Vector2 Position { get; private set; }
+    [field: SerializeField] public Quaternion Rotation { get; private set; }
     [field:SerializeField] public float FireInterval { get; private set; }
     [field: SerializeField] public Projectile Projectile { get; private set; }
 }

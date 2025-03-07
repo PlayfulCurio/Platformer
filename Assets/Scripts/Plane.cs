@@ -53,7 +53,7 @@ public class Plane : MonoBehaviour
 
     private void Move()
     {
-        var position = _rigidbody.position + _planeInput.NormalizedMoveDirection * Time.fixedDeltaTime * _data.Speed;
+        var position = _rigidbody.position + _planeInput.MoveDirection * Time.fixedDeltaTime * _data.Speed;
         if (_clampPositionToViewport)
             position = InputAndCameraManager.Instance.ClampToCamera(position);
         _rigidbody.MovePosition(position);
@@ -61,7 +61,7 @@ public class Plane : MonoBehaviour
 
     private void TiltPlane()
     {
-        _tilt = Mathf.LerpUnclamped(0f, _maxTilt, -_planeInput.NormalizedMoveDirection.x);
+        _tilt = Mathf.LerpUnclamped(0f, _maxTilt, -_planeInput.MoveDirection.x);
         _spriteRenderer.transform.localRotation = Quaternion.Euler(Vector3.up * _tilt);
     }
 }

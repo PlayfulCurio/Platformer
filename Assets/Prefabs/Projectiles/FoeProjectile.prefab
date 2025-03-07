@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2852092660596317972, guid: 6f573f93a988f8640a4369026b7808ca, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3874247333750931967, guid: 6f573f93a988f8640a4369026b7808ca, type: 3}
       propertyPath: m_Size.y
       value: 0.9
@@ -66,7 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7302551239328438630, guid: 6f573f93a988f8640a4369026b7808ca, type: 3}
       propertyPath: m_Name
-      value: EnemyProjectile
+      value: FoeProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 7302551239328438630, guid: 6f573f93a988f8640a4369026b7808ca, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7490149680673406791, guid: 6f573f93a988f8640a4369026b7808ca, type: 3}
       propertyPath: m_Sprite
