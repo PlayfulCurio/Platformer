@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4409345669835519436, guid: 6f573f93a988f8640a4369026b7808ca, type: 3}
       propertyPath: _damage
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4409345669835519436, guid: 6f573f93a988f8640a4369026b7808ca, type: 3}
       propertyPath: _isPlayerSide

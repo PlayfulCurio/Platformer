@@ -12,12 +12,7 @@ public class Pickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var plane = collision.GetComponent<Plane>();
-        //if (plane.IsPlayerSide != _isPlayerSide)
-        //{
-        //    plane.TakeDamage(_damage);
-        //    Destroy(gameObject);
-        //}
+        Destroy(gameObject);
     }
 
     private void OnBecameInvisible()
