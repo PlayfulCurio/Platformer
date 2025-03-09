@@ -13,9 +13,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<Plane>(out var plane))
+        if (collision.TryGetComponent<DestructibleEntity>(out var entity))
         {
-            plane.TakeDamage(_damage);
+            entity.TakeDamage(_damage);
             Destroy(gameObject);
         }
     }

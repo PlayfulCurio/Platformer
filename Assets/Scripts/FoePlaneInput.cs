@@ -10,13 +10,9 @@ public class FoePlaneInput : PlaneInput
     private float _currentPathPercentage;
     private Vector3 _directionToPathPoint, _currentPathPoint;
 
-    private void Awake()
-    {
-        _currentPathPoint = _pathToFollow.EvaluatePosition(_currentPathPercentage);
-    }
-
     private void FixedUpdate()
     {
+        _currentPathPoint = _pathToFollow.EvaluatePosition(_currentPathPercentage);
         _directionToPathPoint = _currentPathPoint - transform.position;
         while (_directionToPathPoint.sqrMagnitude <= _sqrDistanceToCountStep && _currentPathPercentage < 1f)
         {

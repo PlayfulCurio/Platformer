@@ -15,6 +15,7 @@ MonoBehaviour:
   <Speed>k__BackingField: 2
   <Health>k__BackingField: 10
   <Sprite>k__BackingField: {fileID: 2171436348842804110, guid: b9fbcdad94c1d34438a1b67e18ba1a18, type: 3}
+  <FlickerSprite>k__BackingField: {fileID: -1968714237, guid: b9fbcdad94c1d34438a1b67e18ba1a18, type: 3}
   <Guns>k__BackingField:
   - <Position>k__BackingField: {x: 0, y: 0.5}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
