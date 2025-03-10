@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6555419965473315400
 Transform:
   m_ObjectHideFlags: 0
@@ -148,7 +148,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2456833989158953410
 Transform:
   m_ObjectHideFlags: 0
@@ -315,7 +315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &580072503938034296
 Transform:
   m_ObjectHideFlags: 0
@@ -359,7 +359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7957894579515641751
 Transform:
   m_ObjectHideFlags: 0
@@ -560,13 +560,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63f054333fb162b4d8a40f3d9eadb54a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentHealth: 0
+  _flickerSpriteRenderer: {fileID: 558499648140433304}
+  _animator: {fileID: 6309485485498764345}
   _data: {fileID: 0}
   _planeInput: {fileID: 0}
   _clampPositionToViewport: 0
   _rigidbody: {fileID: 4430650882675838414}
   _spriteRenderer: {fileID: 4052292530586233439}
-  _flickerSpriteRenderer: {fileID: 558499648140433304}
-  _animator: {fileID: 6309485485498764345}
   _guns:
   - {fileID: 8686653972901119514}
   - {fileID: 6984808322264356291}
@@ -589,7 +590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5406117844779375159
 Transform:
   m_ObjectHideFlags: 0

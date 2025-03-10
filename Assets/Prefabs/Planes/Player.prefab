@@ -131,6 +131,27 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2699991989599164279}
   m_SourcePrefab: {fileID: 100100000, guid: 72b6a5d4ad6418041ba8c75104f02e6f, type: 3}
+--- !u!70 &1331702749923891922 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 557196965104723700, guid: 72b6a5d4ad6418041ba8c75104f02e6f, type: 3}
+  m_PrefabInstance: {fileID: 1567436462400601126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5194811607691600484 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6761884954061790786, guid: 72b6a5d4ad6418041ba8c75104f02e6f, type: 3}
+  m_PrefabInstance: {fileID: 1567436462400601126}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9174733390731487666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63f054333fb162b4d8a40f3d9eadb54a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &6418241431803096389 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5535640530961076579, guid: 72b6a5d4ad6418041ba8c75104f02e6f, type: 3}
+  m_PrefabInstance: {fileID: 1567436462400601126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &9174733390731487666 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7679644795854574996, guid: 72b6a5d4ad6418041ba8c75104f02e6f, type: 3}
@@ -160,3 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd067e7f3f93ee4994e3deb5fd2ead4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _invincibilityTime: 0
+  _destructibleEntity: {fileID: 5194811607691600484}
+  _colliders:
+  - {fileID: 6418241431803096389}
+  - {fileID: 1331702749923891922}

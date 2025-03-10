@@ -14,9 +14,10 @@ public class Plane : DestructibleEntity
     private float _maxTilt = 20f;
     private float _tilt;
 
-    protected override void Awake()
+    public override event Action<float> OnHealthChanged;
+
+    private void Start()
     {
-        base.Awake();
         SetData(_data);
     }
 
@@ -37,7 +38,7 @@ public class Plane : DestructibleEntity
         if (!_isDead)
         {
             _data = data;
-            _currentHealth = _data.Health;
+            OnHealthChanged?.Invoke((_currentHealth = _data.Health) / _maxPossibleHealth);
             _spriteRenderer.sprite = _data.Sprite;
             _flickerSpriteRenderer.sprite = _data.FlickerSprite;
             for (int i = 0; i < _guns.Length; i++)

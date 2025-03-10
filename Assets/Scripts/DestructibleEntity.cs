@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DestructibleEntity : MonoBehaviour
@@ -7,11 +9,15 @@ public class DestructibleEntity : MonoBehaviour
     [SerializeField] protected SpriteRenderer _flickerSpriteRenderer;
     [SerializeField] private Animator _animator;
 
+    protected static float _maxPossibleHealth = 1000f;
     private float _flickerTime = .6f, _flickerInterval = .15f;
 
     protected bool _isDead;
     private Coroutine _flickerCoroutine;
     private WaitForSeconds _flickerWait;
+
+    public event Action OnDeath;
+    public virtual event Action<float> OnHealthChanged;
 
     protected virtual void Awake()
     {
@@ -30,10 +36,13 @@ public class DestructibleEntity : MonoBehaviour
             }
             else
             {
+                _currentHealth = 0f;
                 _isDead = true;
                 _flickerSpriteRenderer.color = Color.clear;
                 _animator.SetTrigger("Explode");
+                OnDeath?.Invoke();
             }
+            OnHealthChanged?.Invoke(_currentHealth / _maxPossibleHealth);
         }
     }
 
