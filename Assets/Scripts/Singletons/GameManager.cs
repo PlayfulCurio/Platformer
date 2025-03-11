@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     [field:SerializeField] public Camera Camera { get; private set; }
 
     public Vector2 HalfWorldScreenSize { get; private set; }
+    public int FurthestLevelComplete { get; private set; }
 
     public Vector2 ClampToCamera(Vector2 position)
     {
