@@ -4,6 +4,6 @@ public class PlayerPlaneInput : PlaneInput
 {
     private void Update()
     {
-        MoveDirection = InputAndCameraManager.Instance.MoveDirection;
+        MoveDirection = GameplayManager.Instance.InputDirection;
     }
 }

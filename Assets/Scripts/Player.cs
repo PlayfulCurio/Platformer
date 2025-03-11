@@ -21,9 +21,9 @@ public class Player : MonoBehaviour
         GameplayManager.Instance.EndGame(false);
     }
 
-    private void ReactOnDamaged(float normalizedHealth)
+    private void ReactOnDamaged(float changeDelta, float normalizedHealth)
     {
-        GameplayManager.Instance.ChangePlayerHealth(normalizedHealth);
+        GameplayManager.Instance.ChangePlayerHealth(changeDelta, normalizedHealth);
         StartCoroutine(BecomeInvincible());
     }
 

@@ -14,8 +14,6 @@ public class Plane : DestructibleEntity
     private float _maxTilt = 20f;
     private float _tilt;
 
-    public override event Action<float> OnHealthChanged;
-
     private void Start()
     {
         SetData(_data);
@@ -23,22 +21,22 @@ public class Plane : DestructibleEntity
 
     private void FixedUpdate()
     {
-        if (!_isDead)
+        if (!_isDead && !_gameOver)
             Move();
     }
 
     private void Update()
     {
-        if (!_isDead)
+        if (!_isDead && !_gameOver)
             TiltPlane();
     }
 
     public void SetData(ScriptablePlaneData data)
     {
-        if (!_isDead)
+        if (!_isDead && !_gameOver)
         {
             _data = data;
-            OnHealthChanged?.Invoke((_currentHealth = _data.Health) / _maxPossibleHealth);
+            CallOnHealthChanged((_currentHealth = _data.Health), _currentHealth / _maxPossibleHealth);
             _spriteRenderer.sprite = _data.Sprite;
             _flickerSpriteRenderer.sprite = _data.FlickerSprite;
             for (int i = 0; i < _guns.Length; i++)
@@ -69,7 +67,7 @@ public class Plane : DestructibleEntity
     {
         var position = _rigidbody.position + _planeInput.MoveDirection * Time.fixedDeltaTime * _data.Speed;
         if (_clampPositionToViewport)
-            position = InputAndCameraManager.Instance.ClampToCamera(position);
+            position = GameManager.Instance.ClampToCamera(position);
         _rigidbody.MovePosition(position);
     }
 
@@ -77,5 +75,12 @@ public class Plane : DestructibleEntity
     {
         _tilt = Mathf.LerpUnclamped(0f, _maxTilt, -_planeInput.MoveDirection.x);
         _spriteRenderer.transform.localRotation = Quaternion.Euler(Vector3.up * _tilt);
+    }
+
+    protected override void SetGameOver(bool didPlayerWin)
+    {
+        base.SetGameOver(didPlayerWin);
+        foreach (var gun in _guns)
+            gun.gameObject.SetActive(false);
     }
 }

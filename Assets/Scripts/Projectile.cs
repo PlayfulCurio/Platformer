@@ -6,9 +6,25 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float _damage;
     [SerializeField] private Rigidbody2D _rigidbody;
 
+    private GameplayManager _gameplayManager;
+    private bool _gameOver;
+
+    private void Awake()
+    {
+        _gameplayManager = GameplayManager.Instance;
+        _gameplayManager.OnGameOver += SetGameOver;
+    }
+
+    private void OnDestroy()
+    {
+        if (_gameplayManager != null)
+            _gameplayManager.OnGameOver -= SetGameOver;
+    }
+
     private void FixedUpdate()
     {
-        _rigidbody.MovePosition(_rigidbody.position + (Vector2)transform.up * Time.fixedDeltaTime * _speed);
+        if (!_gameOver)
+            _rigidbody.MovePosition(_rigidbody.position + (Vector2)transform.up * Time.fixedDeltaTime * _speed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,4 +35,6 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void SetGameOver(bool didPlayerWin) => _gameOver = true;
 }

@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 6104964948368646873}
   - component: {fileID: 7171895060219474682}
   - component: {fileID: 4726340897278631101}
+  - component: {fileID: 2642882632460579561}
   - component: {fileID: -1940042537697479639}
   m_Layer: 6
   m_Name: GroundTurret
@@ -400,6 +401,20 @@ MonoBehaviour:
   - {fileID: 7171895060219474682}
   - {fileID: 3185189113839655721}
   - {fileID: 6104964948368646873}
+  - {fileID: 2642882632460579561}
+--- !u!114 &2642882632460579561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3835058496043017053}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9bbadc67121c7a47a1e49cc93d2f2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 3835058496043017053}
 --- !u!114 &-1940042537697479639
 MonoBehaviour:
   m_ObjectHideFlags: 0

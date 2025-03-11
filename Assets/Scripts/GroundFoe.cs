@@ -4,9 +4,9 @@ public class GroundFoe : DestructibleEntity
 {
     [SerializeField] private float _shootInterval;
     [SerializeField] private Projectile _projectile;
+    [SerializeField] private Transform _targetTransform;
     [SerializeField] private SpriteRenderer _baseSpriteRenderer;
     [SerializeField] private Transform _barrelTransform;
-    [SerializeField] private Transform _targetTransform;
 
     private float _rotationSpeed = 2f;
     private float _maxAngleToShoot = 5f;
@@ -14,7 +14,7 @@ public class GroundFoe : DestructibleEntity
 
     private void FixedUpdate()
     {
-        if (_targetTransform != null)
+        if (!_isDead && !_gameOver && _targetTransform != null)
         {
             var targetRotation = _targetTransform.position - transform.position;
             _barrelTransform.up = RotateTowards(_barrelTransform.up, targetRotation, _rotationSpeed * Time.fixedDeltaTime, 0f);

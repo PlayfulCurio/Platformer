@@ -12,21 +12,31 @@ public class DestructibleEntity : MonoBehaviour
     protected static float _maxPossibleHealth = 1000f;
     private float _flickerTime = .6f, _flickerInterval = .15f;
 
+    private GameplayManager _gameplayManager;
     protected bool _isDead;
+    protected bool _gameOver;
     private Coroutine _flickerCoroutine;
     private WaitForSeconds _flickerWait;
 
     public event Action OnDeath;
-    public virtual event Action<float> OnHealthChanged;
+    public virtual event Action<float, float> OnHealthChanged;
 
     protected virtual void Awake()
     {
+        _gameplayManager = GameplayManager.Instance;
+        _gameplayManager.OnGameOver += SetGameOver;
         _flickerWait = new WaitForSeconds(_flickerInterval);
+    }
+
+    private void OnDestroy()
+    {
+        if (_gameplayManager != null)
+        _gameplayManager.OnGameOver -= SetGameOver;
     }
 
     public virtual void TakeDamage(float amount)
     {
-        if (!_isDead)
+        if (!_isDead && !_gameOver)
         {
             if (_flickerCoroutine != null)
                 StopCoroutine(_flickerCoroutine);
@@ -42,7 +52,7 @@ public class DestructibleEntity : MonoBehaviour
                 _animator.SetTrigger("Explode");
                 OnDeath?.Invoke();
             }
-            OnHealthChanged?.Invoke(_currentHealth / _maxPossibleHealth);
+            OnHealthChanged?.Invoke(-amount, _currentHealth / _maxPossibleHealth);
         }
     }
 
@@ -56,6 +66,10 @@ public class DestructibleEntity : MonoBehaviour
         }
         _flickerSpriteRenderer.color = Color.clear;
     }
+
+    protected void CallOnHealthChanged(float changeDelta, float normalizedHealth) => OnHealthChanged?.Invoke(changeDelta, normalizedHealth);
+
+    protected virtual void SetGameOver(bool didPlayerWin) => _gameOver = true;
 
     private void FinishExploding() => Destroy(gameObject);
 }
