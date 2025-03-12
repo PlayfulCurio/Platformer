@@ -150,7 +150,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d5ed5f25298b248aa7baf25a8d0c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: 8d45f275412daa94aa56b04d24c37db4, type: 2}
   <Camera>k__BackingField: {fileID: 970690263182705300}
-  _scenes:
-  - m_Handle: 0
-  - m_Handle: 0

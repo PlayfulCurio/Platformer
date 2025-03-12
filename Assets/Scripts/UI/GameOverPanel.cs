@@ -47,6 +47,8 @@ public class GameOverPanel : MonoBehaviour
             _titleText.text = "complete";
             _nextButtonText.text = "next";
             gameObject.SetActive(true);
+            Cursor.visible = true;
+            GameManager.Instance.SaveLevelCompletion();
         }
         else
         {
@@ -60,5 +62,6 @@ public class GameOverPanel : MonoBehaviour
     {
         yield return new WaitForSeconds(.5f);
         gameObject.SetActive(true);
+        Cursor.visible = true;
     }
 }
